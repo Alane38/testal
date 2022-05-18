@@ -3,7 +3,6 @@ import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native
 import { Entypo } from '@expo/vector-icons';
 
 // import { Switch } from 'react-native-switch';
-
 import Switch from './component/Switch';
 
 const App = () => {
@@ -37,19 +36,19 @@ const App = () => {
     );
   }
 
-  const switchObject = () => {
-    toggleSwitch();
-    FadeInView();
-  }
+  // const switchObject = () => {
+  //   toggleSwitch();
+  //   FadeInView();
+  // }
 
   return (
     <View style={isEnabled ? styles.blackContainer : styles.defaultContainer}>
       <Switch
         barHeight={30}
-        switchWidth={50}
+        switchWidth={40}
         switchHeight={20}
         value={isEnabled}
-        onValueChange={switchObject}
+        onValueChange={toggleSwitch}
         disabled={false}
         backgroundActive={'#0095ff'}
         backgroundInactive={'#d1d1d1'}
@@ -85,8 +84,8 @@ const App = () => {
         />
       </TouchableOpacity>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start' }}>
-        <FadeInView style={{ width: 250, height: 50, backgroundColor: 'black' }}>
-          <Text style={{ fontSize: 28, color: "white", textAlign: 'center', margin: 10 }}>Désactivé</Text>
+        <FadeInView style={isEnabled ? styles.enableSwitchBoxFadeView : styles.disableSwitchBoxFadeView}>
+          <Text style={isEnabled ? styles.enableSwitchBoxFadeViewText : styles.disableSwitchBoxFadeViewText}>{isEnabled ? 'Activé' : 'Désactivé'}</Text>
         </FadeInView>
       </View>
     </View>
@@ -106,6 +105,28 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000'
   },
+  enableSwitchBoxFadeView: {
+    width: 250, 
+    height: 50, 
+    backgroundColor: 'black'
+  },
+  disableSwitchBoxFadeView: {
+    width: 250, 
+    height: 50, 
+    backgroundColor: 'white'
+  },
+  enableSwitchBoxFadeViewText: {
+    fontSize: 28, 
+    color: "white", 
+    textAlign: 'center', 
+    margin: 10
+  },
+  disableSwitchBoxFadeViewText: {
+    fontSize: 28, 
+    color: "black", 
+    textAlign: 'center', 
+    margin: 10
+  }
 });
 
 export default App;
