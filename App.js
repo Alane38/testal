@@ -88,6 +88,9 @@ const App = () => {
           <Text style={isEnabled ? styles.enableSwitchBoxFadeViewText : styles.disableSwitchBoxFadeViewText}>{isEnabled ? 'Activé' : 'Désactivé'}</Text>
         </FadeInView>
       </View>
+      <View style={{width: 400, height: 580, backgroundColor: '#000'}}>
+
+      </View>
     </View>
   );
 };
