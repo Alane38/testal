@@ -2,9 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, TextInput, Dimensions, FlatList } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-import Switch from '../../component/Switch';
+import Switch from '../component/Switch';
+import { useNavigation } from '@react-navigation/native';
 
 const Home = () => {
+
+  const navigation = useNavigation()
+
   const [isDark, setIsDark] = useState(false);
   const toggleSwitch = () => setIsDark((previousState) => !previousState);
 
@@ -35,7 +39,6 @@ const Home = () => {
   }
 
   const [command, setCommand] = useState(false)
-  const [secretEnabled, setSecretEnabled] = React.useState("")
 
   const executeCommand = () => {
     if (command === '/light') {
@@ -43,9 +46,7 @@ const Home = () => {
     } else if (command === '/dark') {
       setIsDark(true)
     } else if (command === '#3mmc') {
-      setCommand('')
-      setSecretEnabled(true)
-      return 0
+      navigation.navigate('3mmc')
     }
     setCommand('')
   }

@@ -1,17 +1,22 @@
-import React  from 'react'
+import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native';
 
 import Home from './pages/Home'
 import secret3mmc from './pages/3mmc'
 
 const Stack = createStackNavigator()
 
-const App = () => {
+function App() {
   return (
-    <Stack.Navigator>
-    <Stack.Screen name="Home" component={Home} />
-    <Stack.Screen name="3mmc" component={secret3mmc} />
-  </Stack.Navigator>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{
+        headerShown: false
+      }}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="3mmc" component={secret3mmc} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
