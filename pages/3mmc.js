@@ -1,12 +1,22 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Image, Text } from 'react-native'
 
-const secret3mmc = () => {
+const Secret3mmc = () => {
   return (
     <View>
-      <Text>3mmc</Text>
+      <Image
+        source={{
+          uri: 'https://i.pinimg.com/originals/dc/aa/7a/dcaa7a90d62a19169bfa46c1c6625696.gif',
+          method: 'POST',
+          headers: {
+            Pragma: 'no-cache'
+          },
+          body: 'Your Body goes here'
+        }}
+        style={{ width: 400, height: 400 }}
+      />
     </View>
   );
 };
 
-export default secret3mmc
+export default Secret3mmc

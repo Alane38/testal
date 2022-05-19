@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated, TextInput, Dimensions, FlatList } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, TextInput, Dimensions, FlatList} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 import Switch from '../component/Switch';
@@ -38,7 +38,7 @@ const Home = () => {
     );
   }
 
-  const [command, setCommand] = useState(false)
+  const [command, setCommand] = useState()
 
   const executeCommand = () => {
     if (command === '/light') {
@@ -50,12 +50,6 @@ const Home = () => {
     }
     setCommand('')
   }
-  // const [number, onChangeNumber] = React.useState(null);
-
-  // const switchObject = () => {
-  //   toggleSwitch();
-  //   FadeInView();
-  // }
 
   var commands = [
     {
@@ -147,7 +141,7 @@ const Home = () => {
           keyExtractor={item => item.id}
           renderItem={(item) => {
             return (
-              <TouchableOpacity onPress={() => setCommand(item.item.command)} style={{ padding: 10, flexDirection: 'row', alignItems:'center' }}>
+              <TouchableOpacity onPress={() => setCommand(item.item.command)} style={{ padding: 10, flexDirection: 'row', alignItems: 'center' }}>
                 <FontAwesome name={item.item.icon} size={27} color="#fff" style={{ marginRight: 10 }} />
                 <View>
                   <Text style={{ color: '#fff', fontWeight: 'bold' }}>{item.item.name}</Text>
