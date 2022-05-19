@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, SafeAreaView, TextInput } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 
 // import { Switch } from 'react-native-switch';
@@ -35,6 +35,9 @@ const App = () => {
       </Animated.View>
     );
   }
+
+  const [text, onChangeText] = React.useState("Useless Text");
+  const [number, onChangeNumber] = React.useState(null);
 
   // const switchObject = () => {
   //   toggleSwitch();
@@ -88,8 +91,17 @@ const App = () => {
           <Text style={isEnabled ? styles.enableSwitchBoxFadeViewText : styles.disableSwitchBoxFadeViewText}>{isEnabled ? 'Activé' : 'Désactivé'}</Text>
         </FadeInView>
       </View>
-      <View style={{width: 400, height: 580, backgroundColor: '#000'}}>
-
+      <View style={{ bottom: 1, width: 400, height: 580, backgroundColor: '#000' }}>
+        <View style={{
+          position: 'absolute', right: 0, bottom: 1, width: 100, height: 50, padding: 30, height: 50, width: 400, margin: 0, backgroundColor: '#fff'
+        }}>
+          <TextInput
+            style={styles.input}
+            onChangeText={onChangeNumber}
+            value={number}
+            keyboardType="default"
+          />
+        </View>
       </View>
     </View>
   );
@@ -109,26 +121,32 @@ const styles = StyleSheet.create({
     backgroundColor: '#000'
   },
   enableSwitchBoxFadeView: {
-    width: 250, 
-    height: 50, 
+    width: 250,
+    height: 50,
     backgroundColor: 'black'
   },
   disableSwitchBoxFadeView: {
-    width: 250, 
-    height: 50, 
+    width: 250,
+    height: 50,
     backgroundColor: 'white'
   },
   enableSwitchBoxFadeViewText: {
-    fontSize: 28, 
-    color: "white", 
-    textAlign: 'center', 
+    fontSize: 28,
+    color: "white",
+    textAlign: 'center',
     margin: 10
   },
   disableSwitchBoxFadeViewText: {
-    fontSize: 28, 
-    color: "black", 
-    textAlign: 'center', 
+    fontSize: 28,
+    color: "black",
+    textAlign: 'center',
     margin: 10
+  },
+  input: {
+    color: "#fff",
+    backgroundColor: "#000",
+    fontSize: 54,
+    margin: -27,
   }
 });
 
